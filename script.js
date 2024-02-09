@@ -46,7 +46,7 @@ function matrixEdit (event) {
     
 
     if (compareWin(gameMatrix, step) || steps >= 10) {
-        winner.textContent = compareWin(gameMatrix, step) || `All loose`;
+        winner.textContent = compareWin(gameMatrix, step) || `Everyone lost.`;
         table.removeEventListener('click', matrixEdit);
         return;
     }
@@ -65,7 +65,7 @@ function compareWin(gameMatrix, step) {
         for (let i = 0; i <= 2; i++) {
             for (let j = 0; j <= 2; j++) {
                 win += gameMatrix[i][j] == step;
-            } if (win == 3) return `${step} is win!`; win = 0;
+            } if (win == 3) return `${step} won!`; win = 0;
         }
     }
 
@@ -75,7 +75,7 @@ function compareWin(gameMatrix, step) {
         for (let i = 0; i <= 2; i++) {
             for (let j = 0; j <= 2; j++) {
                 win += gameMatrix[j][i] == step;
-            } if (win == 3) return `${step} is win!`; win = 0;
+            } if (win == 3) return `${step} won!`; win = 0;
         }
     }
 
@@ -87,7 +87,7 @@ function compareWin(gameMatrix, step) {
         }
     }
 
-    if (win == 3) return `${step} is win!`;
+    if (win == 3) return `${step} won!`;
     win = null;
 
     if (win < 3) {
@@ -97,7 +97,7 @@ function compareWin(gameMatrix, step) {
         }
     }
 
-    if (win == 3) return `${step} is win!`;
+    if (win == 3) return `${step} won!`;
 
     return null;
 }
